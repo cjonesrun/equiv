@@ -124,7 +124,6 @@ var accuracy=100;
 document.f.xx.value=Math.round(x*accuracy)/accuracy;
 document.f.yymph.value=Math.round(y_00*accuracy)/accuracy;
 document.f.yy.value=Math.round(y*accuracy)/accuracy;
-  console.log(z)
 document.f.zz.value=Math.round(z*accuracy)/accuracy;
 document.f.ddm.value=Math.round(d_00*accuracy)/accuracy;
 document.f.dd.value=Math.round(d*accuracy)/accuracy;
@@ -154,33 +153,6 @@ document.f.m21ks.value=Math.round(m21ks*accuracy)/accuracy;
 document.f.m42kh.value=m42kh;
 document.f.m42km.value=m42km;
 document.f.m42ks.value=Math.round(m42ks*accuracy)/accuracy;
-
-  startIncline = 1;
-  endIncline = 10;
-  table="<table border='1' width='100%'><tr><th bgcolor='#ffffff'>kph</th><th>pace</th>";
-  for (incline = startIncline; incline<endIncline+1; incline++)
-    table += "<th>" + incline + "%</th>";
-  table+="</tr>"
-for (speed = 800; speed < 2001; speed+=20)
-	{
-    	iSpeed = speed/100;
-      iPace = toPace( eval(60/iSpeed));
-    	table += "<tr><td>" + iSpeed + "</td><td bgcolor=\"" + getBGColour(iPace) + "\">" + iPace + "</td>";
-      for (incline = startIncline; incline<endIncline+1; incline++)  
-      {
-      	eSpeed = iSpeed+iSpeed*(incline)*9/200;
-      	eSpeed = Math.round(accuracy*eSpeed)/accuracy;
-      	ePace = toPace( eval(60/eSpeed));
-      	table += "<td bgcolor=\"" + getBGColour(ePace) + "\">" + ePace + "</td>";
-      	//console.log(incline,"% @", iSpeed, iPace, "equiv:", eSpeed, ePace);
-    	}
-    table += "</tr>";
-}
-  table += "</table>";
-  
-  //console.log(table);
-  document.getElementById("fulltable").innerHTML = table;
-
 }
 
 function getBGColour(pace)
