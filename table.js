@@ -22,5 +22,4 @@ for (speed = 800; speed < 2001; speed+=20) {
 }
   table += "</table>";
   
-  console.log(table);
   document.getElementById("fulltable").innerHTML = table;
