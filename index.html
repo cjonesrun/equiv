@@ -1,0 +1,197 @@
+<HTML>
+<HEAD>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <META http-equiv="Content-Style-Type" content="text/css">
+  <meta name="keywords" content="treadmill,equivalent,calculater,marathon,running" />
+  <meta name="description" content="Treadmill equivalent exercise calculator" />
+  <TITLE>Treadmill Calculator</TITLE>
+
+  <script src="script.js"></script>    
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
+  <script src="http://code.highcharts.com/1.2.5/highcharts.js"></script>
+      
+</HEAD>
+
+<BODY> 
+
+<CENTER>  
+  <table border="1" cellpadding="2" cellspacing="0" bgcolor="#ffffff" width="100%">
+    <tr>
+      <td bgcolor="#ffcc66" class="headtitle"><center><strong>Treadmill Calculator</strong></center></td>
+    </tr>
+  </table>
+  
+  <form method="POST" name="f">
+    <P>Enter incline, speed and two of: running time, distance.</p>
+ 
+  
+  <table border="0" cellpadding="2" cellspacing="0" bgcolor="#ffffff" width="75%">
+    <tr>
+      <td>Incline</td>
+      <td>Weight</td>
+      <td>Time</td>
+      <td>Distance</td>
+      <td>Speed</td>
+    </tr>
+     <tr>
+      <td valign="top"><input type="text" size="9" name="x" value="2"> %</td>
+      <td valign="top">
+        <input type="text" size="9" name="m" value="155"><br/>
+        <input type="radio" name="m000" value="lbs" class="radio"  checked>lbs
+        <input type="radio" name="m000" value="kg" class="radio">kg
+      </td>
+      <td valign="top"><input type="text" size="9" name="z" value="20:00"> min</td>
+      <td valign="top"><input type="text" size="9" name="d" value="5.0"><br/>
+         <input type="radio" name="d000" value="m" class="radio">mi
+			  <input type="radio" name="d000" value="k" class="radio" checked>km</td>
+      <td valign="top">
+        <input type="text" size="9" name="y"><br />
+        <input type="radio" name="y000" value="mph" class="radio">mph
+			<input type="radio" name="y000" value="kmh" class="radio" checked>km/h</td>
+    </tr>
+    <tr>
+      <td colspan=5><font size="2">Input two of Speed, Time, and Distance. Three cannot be specified at the same time.</font></td>
+    </tr>
+    <tr>
+      <td align="center" colspan=5><input class="calc" type="button" value=" Calculate " onclick="check_data()"></td>
+    </tr>
+  </table>
+  
+  <hr/>
+  
+  <table border="0" cellpadding="2" cellspacing="0" bgcolor="#ffffff" width="75%">
+    <tr>
+      <td align="center" colspan=5>====== Input ======</td>
+    </tr>
+        
+    <tr>
+      <td>Incline</td>
+      <td>Time</td>
+      <td>Distance</td>
+      <td>Speed</td>
+      <td>Pace</td>
+    </tr>
+     <tr>
+      <td valign="top"><input type="text" size="9" name="xx"> %</td>
+      <td valign="top"><input type="text" size="9" name="zz"> min</td>
+      <td valign="top">
+        <input type="text" size="9" name="ddm"> mi<br>
+        <input type="text" size="9" name="dd"> km</td>
+      <td valign="top">
+        <input type="text" size="9" name="yymph"> mph<br>
+        <input type="text" size="9" name="yy"> km/h
+      </td>
+      <td valign="top">
+        <input type="text" size="9" name="ppm"> mile/min<br>
+        <input type="text" size="9" name="pp"> min/km</td>
+    </tr>
+  </table>
+  
+  <br />
+  <table border="0" cellpadding="2" cellspacing="0" bgcolor="#ffffff" width="75%">
+    <tr>
+      <td align="center" colspan=5>====== 0% Equivalent ======</td>
+    </tr>
+        
+    <tr>
+      <td>Incline</td>
+      <td>Time</td>
+      <td>Distance</td>
+      <td>Speed</td>
+      <td>Pace</td>
+    </tr>
+     <tr>
+      <td valign="top">0.0 %</td>
+      <td valign="top"><input type="text" size="9" name="z0"> min</td>
+      <td valign="top">
+        <input type="text" size="9" name="dm0"> mi<br>
+        <input type="text" size="9" name="d0"> km</td>
+      <td valign="top">
+        <input type="text" size="9" name="ymp0"> mph<br>
+        <input type="text" size="9" name="y0"> km/h
+      </td>
+      <td valign="top">
+        <input type="text" size="9" name="ppm0"> mile/min<br>
+        <input type="text" size="9" name="pp0"> min/km</td>
+    </tr>
+  </table>
+  
+  <hr />
+
+	<table border="0" class="normalborderno">
+    <tr>
+      <td align="right">Calories burned</td>
+      <td align="center"><input type="text" size="9" name="cal"></td>
+      <td align="left">Kcal</td>
+    </tr>
+    <tr>
+      <td align="right">Combustion of body fat</td>
+      <td align="center"><input type="text" size="9" name="fatoz"></td>
+      <td align="left">oz / <input type="text" size="9" name="fat"> g</td>
+    </tr>
+    <tr>
+      <td align="right">METS</td>
+      <td align="center"><input type="text" size="9" name="mets"></td>
+      <td align="left"></td>
+    </tr>
+    <tr>
+      <td align="right">VO<font size=1>2</font></td>
+      <td align="center"><input type="text" size="9" name="vo2"></td>
+      <td align="left"></td>
+    </tr>
+    <tr>
+      <td align="right">Energy</td>
+      <td align="center"><input type="text" size="9" name="kw"></td>
+      <td align="left">KWh</td>
+    </tr>
+	</table>
+  
+  <hr />
+	<table border="0" class="normalborderno" >
+    <tr>
+			<td>100-Meter Dash</td>
+			<td><font size="1">pace for </font></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><input type="text" name="s100">s</td>
+    </tr>
+    <tr>
+			<td>10,000-Meter Run</td>
+			<td><font size="1">pace for </font></td>
+			<td></td>
+			<td></td>
+			<td><input type="text" name="m10k"></td>
+			<td>m</td>
+			<td><input type="text" name="s10k">s</td>
+    </tr>
+    <tr>
+			<td width="150px">Half Marathon</td>
+			<td><font size="1">pace for </font></td>
+			<td><input type="text" name="m21kh"></td>
+			<td>h</td>
+			<td><input type="text" name="m21km"></td>
+			<td>m</td>
+			<td><input type="text" name="m21ks">s</td>
+    </tr>
+    <tr>
+			<td>Marathon</td>
+			<td><font size="1">pace for </font></td>
+			<td><input type="text" name="m42kh"></td>
+			<td>h</td>
+			<td><input type="text" name="m42km"></td>
+			<td>m</td>
+			<td><input type="text" name="m42ks">s</td>
+    </tr>
+  </table>
+  
+  <hr />
+    
+    <div id="fulltable"></div>    
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+  </form>
+</CENTER>
+
+</BODY>
+</HTML>
