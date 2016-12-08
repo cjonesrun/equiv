@@ -1,0 +1,1 @@
+var accuracy=100;
