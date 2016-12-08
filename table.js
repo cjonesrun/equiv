@@ -1,5 +1,3 @@
-
-alert("building table");
 startIncline = 1;
 endIncline = 10;
 table="<table border='1' width='100%'><tr><th bgcolor='#ffffff'>kph</th><th>pace</th>";
