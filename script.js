@@ -120,6 +120,7 @@ m42kh=Math.floor(m42k/60);
 m42km=Math.floor(m42k-m42kh*60);
 m42ks=((m42k-m42kh*60)-m42km)*60;
 
+var accuracy=100;
 document.f.xx.value=Math.round(x*accuracy)/accuracy;
 document.f.yymph.value=Math.round(y_00*accuracy)/accuracy;
 document.f.yy.value=Math.round(y*accuracy)/accuracy;
@@ -179,9 +180,6 @@ function getBGColour(pace)
     return "#ce5c5c";
 }
 
-function $(element){
-	
-}
     
 		var chart;
 		$(document).ready(function() {
@@ -251,4 +249,3 @@ function $(element){
 			
 			
 		});
-}
