@@ -3,7 +3,8 @@ function buildCalcTable() {
 
   startIncline = 1;
   endIncline = 10;
-  table="<table border='1' width='100%'><tr><th bgcolor='#ffffff'>kph</th><th>pace</th>";
+
+  table="<table border='1'><tr><th bgcolor='#ffffff'>kph</th><th>pace</th>";
 
   for (incline = startIncline; incline<endIncline+1; incline++)
     table += "<th>" + incline + "%</th>";
@@ -26,5 +27,5 @@ function buildCalcTable() {
   }
   table += "</table>";
 
-  document.getElementById("table_div").innerHTML = table;
+  document.getElementById("table-tab-div").innerHTML = table;
 }

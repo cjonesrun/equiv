@@ -15,13 +15,16 @@
 		<div id="tab_bar_div" data-visible="true" class="top-level-div">
 			<table>
 				<tr>
-					<td class="tab-item" id="calculator-tab">Calculator</td>
-					<td class="tab-item" id="table-tab">Table</td>
+					<td class="tab-item" id="calculator-tab" active='true'>Calculator</td>
+					<td class="tab-item" id="table-tab" active='false'>Table</td>
+					<td class="tab-item" id="charts-tab" active='false'>Charts</td>
+
+
 				</tr>
 			</table>
 		</div>
 
-		<div id='equiv_div' data-visible="true" class="top-level-div">
+		<div id='calculator-tab-div' data-visible="true" class="top-level-div">
 			<table>
 				<tr>
 					<td colspan=5><font size="2">Input two of Speed, Time, and Distance. Three cannot be specified at the same time.</font></td>
@@ -34,43 +37,178 @@
 					<td>Speed</td>
 				</tr>
 				<tr>
-					<td valign="top"><input type="text" size="9" name="incline_pct" value="2"> %</td>
 					<td valign="top">
-					<input type="text" size="9" name="m" value="155"><br/>
-					<input type="radio" name="m000" value="lbs" class="radio"  checked>lbs
-					<input type="radio" name="m000" value="kg" class="radio">kg
+						<input type="text" size="9" id="incline_pct" value="2"> %
 					</td>
-					<td valign="top"><input type="text" size="9" name="z" value="20:00"> min</td>
-					<td valign="top"><input type="text" size="9" name="d" value="5.0"><br/>
-					<input type="radio" name="d000" value="m" class="radio">mi
-					<input type="radio" name="d000" value="k" class="radio" checked>km</td>
 					<td valign="top">
-					<input type="text" size="9" name="y"><br />
-					<input type="radio" name="y000" value="mph" class="radio">mph
-					<input type="radio" name="y000" value="kmh" class="radio" checked>km/h</td>
+						<input type="text" size="9" id="weight" value="155"><br/>
+						<input type="radio" name="weight-radio" id="weight-imperial" ratio="0.453592" value="lbs" class="radio" checked>lbs
+						<input type="radio" name="weight-radio" id="weight-metric" ratio="2.20462" value="kg" class="radio">kg
+					</td>
+					<td valign="top"><input type="text" size="9" id="total_time" value="20:00"> min</td>
+					<td valign="top"><input type="text" size="9" id="total_distance" value="5.0"><br/>
+						<input type="radio" name="distance-radio" id="distance-imperial" ratio="1.60934" value="mi" class="radio">mi
+						<input type="radio" name="distance-radio" id="distance-metric" ratio="0.621371" value="km" class="radio" checked>km</td>
+					<td valign="top">
+						<input type="text" size="9" id="speed_val"><br />
+						<input type="radio" name="y000" value="mph" class="radio">mph
+						<input type="radio" name="y000" value="kmh" class="radio" checked>km/h
+					</td>
 				</tr>
 				<tr>
-					<td align="center" colspan=5><input class="calc" type="button" value=" Calculate " onclick="check_data()"></td>
+					<td align="center" colspan=5><input class="calc-button" id="calc-button" type="button" value="Calculate"></td>
 				</tr>
+			</table>
+
+			<hr/>
+  
+			<table>
+				<tr>
+					<td>Input</td>
+				</tr>
+				    
+				<tr>
+					<td>Incline</td>
+					<td>Time</td>
+					<td>Distance</td>
+					<td>Speed</td>
+					<td>Pace</td>
+				</tr>
+				<tr>
+					<td valign="top"><input type="text" size="9" name="xx"> %</td>
+					<td valign="top"><input type="text" size="9" name="zz"> min</td>
+					<td valign="top">
+						<input type="text" size="9" name="ddm"> mi<br>
+						<input type="text" size="9" name="dd"> km
+						</td>
+					<td valign="top">
+						<input type="text" size="9" name="yymph"> mph<br>
+						<input type="text" size="9" name="yy"> km/h
+					</td>
+					<td valign="top">
+						<input type="text" size="9" name="ppm"> mile/min<br>
+						<input type="text" size="9" name="pp"> min/km
+					</td>
+				</tr>
+			</table>
+
+			<br />
+
+			<table>
+				<tr>
+					<td>0% Equivalent</td>
+				</tr>
+				    
+				<tr>
+					<td>Incline</td>
+					<td>Time</td>
+					<td>Distance</td>
+					<td>Speed</td>
+					<td>Pace</td>
+				</tr>
+				<tr>
+					<td valign="top">0.0 %</td>
+					<td valign="top"><input type="text" size="9" name="z0"> min</td>
+					<td valign="top">
+						<input type="text" size="9" name="dm0"> mi<br>
+						<input type="text" size="9" name="d0"> km</td>
+					<td valign="top">
+						<input type="text" size="9" name="ymp0"> mph<br>
+						<input type="text" size="9" name="y0"> km/h
+					</td>
+					<td valign="top">
+						<input type="text" size="9" name="ppm0"> mile/min<br>
+						<input type="text" size="9" name="pp0"> min/km
+					</td>
+				</tr>
+			</table>
+
+			<hr />
+
+			<table>
+			<tr>
+			  <td align="right">Calories burned</td>
+			  <td align="center"><input type="text" size="9" name="cal"></td>
+			  <td align="left">Kcal</td>
+			</tr>
+			<tr>
+			  <td align="right">Combustion of body fat</td>
+			  <td align="center"><input type="text" size="9" name="fatoz"></td>
+			  <td align="left">oz / <input type="text" size="9" name="fat"> g</td>
+			</tr>
+			<tr>
+			  <td align="right">METS</td>
+			  <td align="center"><input type="text" size="9" name="mets"></td>
+			  <td align="left"></td>
+			</tr>
+			<tr>
+			  <td align="right">VO<font size=1>2</font></td>
+			  <td align="center"><input type="text" size="9" name="vo2"></td>
+			  <td align="left"></td>
+			</tr>
+			<tr>
+			  <td align="right">Energy</td>
+			  <td align="center"><input type="text" size="9" name="kw"></td>
+			  <td align="left">KWh</td>
+			</tr>
+			</table>
+
+			<hr />
+			<table>
+			<tr>
+					<td>100-Meter Dash</td>
+					<td><font size="1">pace for </font></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><input type="text" name="s100">s</td>
+			</tr>
+			<tr>
+					<td>10,000-Meter Run</td>
+					<td><font size="1">pace for </font></td>
+					<td></td>
+					<td></td>
+					<td><input type="text" name="m10k"></td>
+					<td>m</td>
+					<td><input type="text" name="s10k">s</td>
+			</tr>
+			<tr>
+					<td width="150px">Half Marathon</td>
+					<td><font size="1">pace for </font></td>
+					<td><input type="text" name="m21kh"></td>
+					<td>h</td>
+					<td><input type="text" name="m21km"></td>
+					<td>m</td>
+					<td><input type="text" name="m21ks">s</td>
+			</tr>
+			<tr>
+					<td>Marathon</td>
+					<td><font size="1">pace for </font></td>
+					<td><input type="text" name="m42kh"></td>
+					<td>h</td>
+					<td><input type="text" name="m42km"></td>
+					<td>m</td>
+					<td><input type="text" name="m42ks">s</td>
+			</tr>
 			</table>
 
 		</div>
 
 		
 
-		<div id="table_div" data-visible="false" class="top-level-div">table body div here</div>
+		<div id="table-tab-div" data-visible="false" class="top-level-div"></div>
 
-		<div id='footer_div' data-visible="true" class="top-level-div">footer content here</div>
+		<div id='charts-tab-div' data-visible="false" class="top-level-div">charts content here</div>
 
 	</body>
 </html>
 
 <script type="text/javascript" src="constants.js"></script>
-<script type="text/javascript" src="events.js"></script>
-<script type="text/javascript" src="table.js"></script>
 <script type="text/javascript" src="functions.js"></script>
 
-
+<script type="text/javascript" src="events.js"></script>
+<script type="text/javascript" src="table.js"></script>
 
 <script>
 	buildCalcTable();

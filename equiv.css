@@ -6,6 +6,23 @@ div{
 table,tr,td{
 	//border: 1px solid black;
 }
+
+.tab-item {
+	background: white;
+}
+
+.tab-item:hover {
+	//background: linear-gradient(to right, lightgray, white);
+	//background: darkgray;
+	border: 1px solid black;
+}
+
+.tab-item[active='true'] {
+	//background: linear-gradient(to right, white, lightgray);
+	background: lightgray;
+}
+
+
 /* Invisible Container */
 [data-visible="false"]{
   display: none;
