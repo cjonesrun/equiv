@@ -29,3 +29,5 @@ function buildCalcTable() {
 
   document.getElementById("table-tab-div").innerHTML = table;
 }
+
+buildCalcTable();
