@@ -1,2 +1,4 @@
 # equiv
-A treadmill equivalency calculator
+A treadmill incline equivalency calculator
+
+https://cjonesrun.github.io/equiv/
